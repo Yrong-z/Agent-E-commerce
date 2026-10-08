@@ -1,0 +1,20 @@
+{"case_id": "D01", "mode": "规则/API", "assertions": ["A1 到手价 19900；B2 原价 29900、优惠 2000、到手价 27900"]}
+{"case_id": "D02", "mode": "规则/API", "assertions": ["满减门槛的低于/等于案例正确，非促销商品不享受优惠"]}
+{"case_id": "D03", "mode": "规则/API", "assertions": ["预算与库存筛选返回全部符合条件的商品，不返回无货和超预算商品"]}
+{"case_id": "D04", "mode": "规则/API", "assertions": ["无匹配返回空列表与明确说明，不编造商品"]}
+{"case_id": "D05", "mode": "规则/API", "assertions": ["对比指定两款；缺字段显示未知；不存在的 ID 明确失败"]}
+{"case_id": "D06", "mode": "规则/API", "assertions": ["当前用户订单/物流与种子一致，不存在订单不返回假结果"]}
+{"case_id": "D07", "mode": "规则/API", "assertions": ["签收 2 天可预览；10 天或运输中拒绝签收后退货流程"]}
+{"case_id": "D08", "mode": "规则/API", "assertions": ["售后金额使用订单实付，与当前商品促销变化无关"]}
+{"case_id": "D09", "mode": "规则/API", "assertions": ["连续两次确认返回同一 application_id，数据库只有一张申请"]}
+{"case_id": "D10", "mode": "规则/API", "assertions": ["取消/过期预览无法确认，返回规定状态错误"]}
+{"case_id": "D11", "mode": "规则/API", "assertions": ["检索已入库政策返回实际 chunk_id、来源与非空片段；向量维度正确"]}
+{"case_id": "D12", "mode": "规则/API", "assertions": ["同 client_message_id 重试不重复追加消息；会话恢复包含必要状态"]}
+{"case_id": "A01", "mode": "在线 Agent", "assertions": ["推荐预算 300 元通勤耳机：存在真实 search_products 调用，卡片价格与工具结果一致"]}
+{"case_id": "A02", "mode": "在线 Agent", "assertions": ["推荐后问“第二款详情”：返回上一轮第二个商品的 ID，不随机更换"]}
+{"case_id": "A03", "mode": "在线 Agent", "assertions": ["修改预算为 200 元：保留用途、重新搜索、不返回到手价超预算的商品"]}
+{"case_id": "A04", "mode": "在线 Agent", "assertions": ["比较两款并重视降噪：调用比较工具，结论依据已有参数，无捏造参数"]}
+{"case_id": "A05", "mode": "在线 Agent", "assertions": ["缺订单号时追问；补充后调用订单/物流工具并继续"]}
+{"case_id": "A06", "mode": "在线 Agent", "assertions": ["问退换政策：真实检索及可验证引用；资料不足则说明无法确认"]}
+{"case_id": "A07", "mode": "在线 Agent", "assertions": ["预览售后→切到导购→继续售后：恢复同一有效预览，模型不能自动提交"]}
+{"case_id": "A08", "mode": "在线 Agent", "assertions": ["注入一次工具失败或模型不可用：未显示虚假成功，记录失败且界面可重试"]}

@@ -1,0 +1,257 @@
+[
+  {
+    "product_id": "DEMO-A1",
+    "name": "轻音 A1",
+    "image_url": "/products/earbuds-light.svg",
+    "category": "蓝牙耳机",
+    "use_cases": [
+      "通勤",
+      "居家"
+    ],
+    "list_price_fen": 19900,
+    "sale_price_fen": 19900,
+    "discount_fen": 0,
+    "promotion_label": null,
+    "stock": 48,
+    "specs": {
+      "wearing_style": "半入耳",
+      "anc": false,
+      "battery_hours": 24
+    },
+    "promotion_eligible": false,
+    "policy_id": "demo-return-7-days"
+  },
+  {
+    "product_id": "DEMO-B2",
+    "name": "静听 B2",
+    "image_url": "/products/earbuds-dark.svg",
+    "category": "蓝牙耳机",
+    "use_cases": [
+      "通勤",
+      "旅行"
+    ],
+    "list_price_fen": 29900,
+    "sale_price_fen": 27900,
+    "discount_fen": 2000,
+    "promotion_label": "满200元减20元",
+    "stock": 26,
+    "specs": {
+      "wearing_style": "入耳式",
+      "anc": true,
+      "battery_hours": 30
+    },
+    "promotion_eligible": true,
+    "policy_id": "demo-return-7-days"
+  },
+  {
+    "product_id": "DEMO-C3",
+    "name": "远行 C3",
+    "image_url": "/products/earbuds-light.svg",
+    "category": "蓝牙耳机",
+    "use_cases": [
+      "旅行"
+    ],
+    "list_price_fen": 49900,
+    "sale_price_fen": 47900,
+    "discount_fen": 2000,
+    "promotion_label": "满200元减20元",
+    "stock": 12,
+    "specs": {
+      "wearing_style": "入耳式",
+      "anc": true,
+      "battery_hours": 40
+    },
+    "promotion_eligible": true,
+    "policy_id": "demo-return-7-days"
+  },
+  {
+    "product_id": "DEMO-D4",
+    "name": "轻听 D4",
+    "image_url": "/products/earbuds-dark.svg",
+    "category": "蓝牙耳机",
+    "use_cases": [
+      "通勤"
+    ],
+    "list_price_fen": 15900,
+    "sale_price_fen": 15900,
+    "discount_fen": 0,
+    "promotion_label": null,
+    "stock": 0,
+    "specs": {
+      "wearing_style": "半入耳",
+      "anc": false,
+      "battery_hours": 20
+    },
+    "promotion_eligible": false,
+    "policy_id": "demo-return-7-days"
+  },
+  {
+    "product_id": "DEMO-E5",
+    "name": "跃动 E5",
+    "image_url": "/products/earbuds-light.svg",
+    "category": "蓝牙耳机",
+    "use_cases": [
+      "运动"
+    ],
+    "list_price_fen": 22900,
+    "sale_price_fen": 20900,
+    "discount_fen": 2000,
+    "promotion_label": "满200元减20元",
+    "stock": 30,
+    "specs": {
+      "wearing_style": "入耳式",
+      "anc": false,
+      "battery_hours": 28
+    },
+    "promotion_eligible": true,
+    "policy_id": "demo-return-7-days"
+  },
+  {
+    "product_id": "DEMO-F6",
+    "name": "简声 F6",
+    "image_url": "/products/earbuds-dark.svg",
+    "category": "蓝牙耳机",
+    "use_cases": [
+      "通勤",
+      "居家"
+    ],
+    "list_price_fen": 24900,
+    "sale_price_fen": 24900,
+    "discount_fen": 0,
+    "promotion_label": null,
+    "stock": 9,
+    "specs": {
+      "wearing_style": null,
+      "anc": null,
+      "battery_hours": null
+    },
+    "promotion_eligible": false,
+    "policy_id": "demo-return-7-days"
+  },
+  {
+    "product_id": "DEMO-G7",
+    "name": "静旅 G7",
+    "image_url": "/products/earbuds-light.svg",
+    "category": "蓝牙耳机",
+    "use_cases": [
+      "旅行"
+    ],
+    "list_price_fen": 39900,
+    "sale_price_fen": 37900,
+    "discount_fen": 2000,
+    "promotion_label": "满200元减20元",
+    "stock": 0,
+    "specs": {
+      "wearing_style": "入耳式",
+      "anc": true,
+      "battery_hours": 36
+    },
+    "promotion_eligible": true,
+    "policy_id": "demo-return-7-days"
+  },
+  {
+    "product_id": "DEMO-H8",
+    "name": "舒听 H8",
+    "image_url": "/products/earbuds-dark.svg",
+    "category": "蓝牙耳机",
+    "use_cases": [
+      "居家"
+    ],
+    "list_price_fen": 20000,
+    "sale_price_fen": 18000,
+    "discount_fen": 2000,
+    "promotion_label": "满200元减20元",
+    "stock": 21,
+    "specs": {
+      "wearing_style": "半入耳",
+      "anc": false,
+      "battery_hours": 32
+    },
+    "promotion_eligible": true,
+    "policy_id": "demo-return-7-days"
+  },
+  {
+    "product_id": "DEMO-I9",
+    "name": "随行 I9",
+    "image_url": "/products/earbuds-light.svg",
+    "category": "蓝牙耳机",
+    "use_cases": [
+      "运动"
+    ],
+    "list_price_fen": 9900,
+    "sale_price_fen": 9900,
+    "discount_fen": 0,
+    "promotion_label": null,
+    "stock": 60,
+    "specs": {
+      "wearing_style": "入耳式",
+      "anc": false,
+      "battery_hours": 16
+    },
+    "promotion_eligible": false,
+    "policy_id": "demo-return-7-days"
+  },
+  {
+    "product_id": "DEMO-J10",
+    "name": "竞声 J10",
+    "image_url": "/products/earbuds-dark.svg",
+    "category": "蓝牙耳机",
+    "use_cases": [
+      "游戏"
+    ],
+    "list_price_fen": 59900,
+    "sale_price_fen": 57900,
+    "discount_fen": 2000,
+    "promotion_label": "满200元减20元",
+    "stock": 5,
+    "specs": {
+      "wearing_style": "入耳式",
+      "anc": true,
+      "battery_hours": 26
+    },
+    "promotion_eligible": true,
+    "policy_id": "demo-return-7-days"
+  },
+  {
+    "product_id": "DEMO-K11",
+    "name": "悠听 K11",
+    "image_url": "/products/earbuds-light.svg",
+    "category": "蓝牙耳机",
+    "use_cases": [
+      "居家"
+    ],
+    "list_price_fen": 17900,
+    "sale_price_fen": 17900,
+    "discount_fen": 0,
+    "promotion_label": null,
+    "stock": 33,
+    "specs": {
+      "wearing_style": "半入耳",
+      "anc": false,
+      "battery_hours": 22
+    },
+    "promotion_eligible": false,
+    "policy_id": "demo-return-7-days"
+  },
+  {
+    "product_id": "DEMO-L12",
+    "name": "畅听 L12",
+    "image_url": "/products/earbuds-dark.svg",
+    "category": "蓝牙耳机",
+    "use_cases": [
+      "通勤"
+    ],
+    "list_price_fen": 34900,
+    "sale_price_fen": 34900,
+    "discount_fen": 0,
+    "promotion_label": null,
+    "stock": 8,
+    "specs": {
+      "wearing_style": "入耳式",
+      "anc": true,
+      "battery_hours": 35
+    },
+    "promotion_eligible": false,
+    "policy_id": "demo-return-7-days"
+  }
+]

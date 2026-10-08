@@ -1,0 +1,62 @@
+[
+  {
+    "order_id": "DEMO20261003001",
+    "customer_id": "demo-user",
+    "items": [
+      {
+        "product_id": "DEMO-A1",
+        "name": "轻音 A1",
+        "quantity": 1,
+        "paid_price_fen": 19900
+      }
+    ],
+    "paid_total_fen": 19900,
+    "status": "shipped",
+    "signed_at": null,
+    "signed_days_ago": null,
+    "logistics": {
+      "summary": "快件已到达配送站"
+    },
+    "policy_id": "demo-return-7-days"
+  },
+  {
+    "order_id": "DEMO20261003002",
+    "customer_id": "demo-user",
+    "items": [
+      {
+        "product_id": "DEMO-B2",
+        "name": "静听 B2",
+        "quantity": 1,
+        "paid_price_fen": 27900
+      }
+    ],
+    "paid_total_fen": 27900,
+    "status": "delivered",
+    "signed_at": null,
+    "signed_days_ago": 2,
+    "logistics": {
+      "summary": "演示订单已签收"
+    },
+    "policy_id": "demo-return-7-days"
+  },
+  {
+    "order_id": "DEMO20261003003",
+    "customer_id": "demo-user",
+    "items": [
+      {
+        "product_id": "DEMO-C3",
+        "name": "远行 C3",
+        "quantity": 1,
+        "paid_price_fen": 47900
+      }
+    ],
+    "paid_total_fen": 47900,
+    "status": "delivered",
+    "signed_at": null,
+    "signed_days_ago": 10,
+    "logistics": {
+      "summary": "演示订单已签收"
+    },
+    "policy_id": "demo-return-7-days"
+  }
+]

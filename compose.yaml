@@ -1,0 +1,43 @@
+name: shopping-assistant
+services:
+  embedding:
+    image: ghcr.io/huggingface/text-embeddings-inference:cpu-1.8.2
+    pull_policy: never
+    profiles: [local-embedding]
+    command: ["--model-id", "/model", "--dtype", "float32", "--pooling", "cls", "--port", "80", "--max-batch-tokens", "2048"]
+    environment:
+      HF_HUB_OFFLINE: "1"
+      TRANSFORMERS_OFFLINE: "1"
+      HF_HOME: /tmp/huggingface
+    volumes:
+      - type: bind
+        source: ${EMBEDDING_MODEL_DIR:-./data/embedding-model}
+        target: /model
+        read_only: true
+        bind:
+          create_host_path: false
+    ports:
+      - "127.0.0.1:${EMBEDDING_PORT:-8082}:80"
+    healthcheck:
+      test: ["CMD", "curl", "--fail", "--silent", "http://127.0.0.1/health"]
+      interval: 5s
+      timeout: 3s
+      retries: 12
+      start_period: 60s
+  db:
+    image: pgvector/pgvector:pg17@sha256:ac08538c6f8b9904c33c8224c5e5706dbe760aca29db1d096972b4052c22a75d
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-shopping}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?请在 .env 设置数据库密码}
+      POSTGRES_DB: ${POSTGRES_DB:-shopping}
+    ports:
+      - "127.0.0.1:${POSTGRES_PORT:-5433}:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $$POSTGRES_USER -d $$POSTGRES_DB"]
+      interval: 5s
+      timeout: 5s
+      retries: 12
+volumes:
+  pgdata:

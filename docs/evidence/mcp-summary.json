@@ -1,0 +1,90 @@
+{
+  "scope": "O6_read_only_stdio",
+  "checked_at": "2026-10-03T15:13:10.517248+00:00",
+  "sdk_version": "1.30.0",
+  "transport": "stdio",
+  "status": "passed",
+  "checks": [
+    {
+      "name": "initialize",
+      "status": "passed",
+      "detail": {
+        "protocol_version": "2025-11-25"
+      }
+    },
+    {
+      "name": "list_two_read_only_tools_and_schema",
+      "status": "passed"
+    },
+    {
+      "name": "search_real_database_products",
+      "status": "passed",
+      "detail": {
+        "products": [
+          {
+            "product_id": "DEMO-A1",
+            "sale_price_fen": 19900
+          },
+          {
+            "product_id": "DEMO-B2",
+            "sale_price_fen": 27900
+          }
+        ]
+      }
+    },
+    {
+      "name": "get_real_owned_order_historical_amount",
+      "status": "passed",
+      "detail": {
+        "order_id": "DEMO20261003002",
+        "paid_total_fen": 27900
+      }
+    },
+    {
+      "name": "empty_result",
+      "status": "passed"
+    },
+    {
+      "name": "unknown_order",
+      "status": "passed"
+    },
+    {
+      "name": "invalid_parameters",
+      "status": "passed",
+      "detail": {
+        "cases": [
+          "limit_zero",
+          "negative_budget",
+          "string_limit"
+        ]
+      }
+    },
+    {
+      "name": "dependency_unavailable",
+      "status": "passed"
+    },
+    {
+      "name": "normal_shutdown_pool_closed_stderr_only",
+      "status": "passed",
+      "detail": {
+        "pool_opened": 2,
+        "pool_closed": 2,
+        "stdout_protocol_parse_errors": 0
+      }
+    }
+  ],
+  "tools": [
+    "search_products",
+    "get_order"
+  ],
+  "passed": 9,
+  "failed": 0,
+  "not_run": 0,
+  "data_mode": "synthetic_demo_postgresql",
+  "limitations": [
+    "仅stdio传输",
+    "仅两个只读工具",
+    "截至O6验证时（2026-10-03）未执行O7二十案例；后续结果见evaluation-summary.json"
+  ],
+  "previous_attempt_note": "首次检查脚本误写商品ID和订单金额字段；按既有契约修正后重新验证，真实失败历史保留。"
+}

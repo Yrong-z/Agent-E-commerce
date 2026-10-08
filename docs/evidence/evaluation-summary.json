@@ -1,0 +1,206 @@
+{
+  "checked_at": "2026-10-03T16:12:06.852062+00:00",
+  "environment": {
+    "python": "3.12.14",
+    "chat_model": "deepseek-flash",
+    "embedding_model": "bge-large-zh-v1.5",
+    "embedding_dimension": "1024",
+    "data_mode": "synthetic_postgresql_mock_commerce",
+    "method": "程序断言与Codex直接语义审阅；不按固定措辞判分，不自动重试",
+    "os": "Windows, PowerShell",
+    "node": "24.19.0",
+    "pnpm": "11.19.0",
+    "postgresql": "17.11",
+    "pgvector": "0.8.7",
+    "tei": "cpu-1.8.2/Candle",
+    "mcp_sdk": "1.30.0",
+    "fastapi": "0.142.2",
+    "pydantic": "2.13.5"
+  },
+  "case_count": 20,
+  "passed": 20,
+  "failed": 0,
+  "not_run": 0,
+  "scope": "O7_finite_demo_acceptance",
+  "timezone": "Asia/Shanghai",
+  "execution_date": "2026-10-03",
+  "final_review_date": "2026-10-04",
+  "first_run": {
+    "checked_at": "2026-10-03T15:55:06.006677Z",
+    "case_count": 20,
+    "passed": 19,
+    "failed": 1,
+    "not_run": 0
+  },
+  "judging": {
+    "program": "实际工具/参数、数据库商品/金额/订单事实、来源片段/维度、状态与确认边界；不用措辞完全相等评分。",
+    "semantic": "Codex逐项直接审阅八个在线案例正文、原生参数及工具结果；没有独立真人盲审，也不使用另一付费模型裁判。",
+    "counting": "最终按20个唯一案例计数；重跑只替换对应案例；八个在线案例含多条消息。",
+    "D12": "复用现有真实数据库/ASGI测试，局部模型夹具只验证去重/恢复，不作为在线证据。",
+    "A08": "在线模型+一次请求范围embedding失败替身，恢复后真实TEI检索；不是停用实际数据库。"
+  },
+  "corrections": [
+    {
+      "case_id": "D06",
+      "reason": "评测脚本误写shipping，按既有种子及契约修正为shipped；业务未修改，首次失败保留。"
+    },
+    {
+      "case_id": "A08",
+      "reason": "首次未知订单错误覆盖未满足一次故障注入要求；补做ASGI请求范围embedding失败注入+真实在线模型+恢复检索，标准未降低。"
+    },
+    {
+      "scope": "report_writer",
+      "reason": "一次D06业务断言通过后，汇总附加元数据与严格EvalReport模型冲突导致latest写入失败；本次时间戳报告已保存。修正字段处理，真实报告离线合并/模型/不可覆盖归档验证通过，无额外全量模型调用。"
+    }
+  ],
+  "cases": [
+    {
+      "case_id": "D01",
+      "mode": "规则/API",
+      "status": "passed",
+      "manual_review": "not_applicable"
+    },
+    {
+      "case_id": "D02",
+      "mode": "规则/API",
+      "status": "passed",
+      "manual_review": "not_applicable"
+    },
+    {
+      "case_id": "D03",
+      "mode": "规则/API",
+      "status": "passed",
+      "manual_review": "not_applicable"
+    },
+    {
+      "case_id": "D04",
+      "mode": "规则/API",
+      "status": "passed",
+      "manual_review": "not_applicable"
+    },
+    {
+      "case_id": "D05",
+      "mode": "规则/API",
+      "status": "passed",
+      "manual_review": "not_applicable"
+    },
+    {
+      "case_id": "D06",
+      "mode": "规则/API",
+      "status": "passed",
+      "manual_review": "not_applicable"
+    },
+    {
+      "case_id": "D07",
+      "mode": "规则/API",
+      "status": "passed",
+      "manual_review": "not_applicable"
+    },
+    {
+      "case_id": "D08",
+      "mode": "规则/API",
+      "status": "passed",
+      "manual_review": "not_applicable"
+    },
+    {
+      "case_id": "D09",
+      "mode": "规则/API",
+      "status": "passed",
+      "manual_review": "not_applicable"
+    },
+    {
+      "case_id": "D10",
+      "mode": "规则/API",
+      "status": "passed",
+      "manual_review": "not_applicable"
+    },
+    {
+      "case_id": "D11",
+      "mode": "规则/API",
+      "status": "passed",
+      "manual_review": "not_applicable"
+    },
+    {
+      "case_id": "D12",
+      "mode": "规则/API",
+      "status": "passed",
+      "manual_review": "not_applicable"
+    },
+    {
+      "case_id": "A01",
+      "mode": "在线 Agent",
+      "status": "passed",
+      "manual_review": "passed"
+    },
+    {
+      "case_id": "A02",
+      "mode": "在线 Agent",
+      "status": "passed",
+      "manual_review": "passed"
+    },
+    {
+      "case_id": "A03",
+      "mode": "在线 Agent",
+      "status": "passed",
+      "manual_review": "passed"
+    },
+    {
+      "case_id": "A04",
+      "mode": "在线 Agent",
+      "status": "passed",
+      "manual_review": "passed"
+    },
+    {
+      "case_id": "A05",
+      "mode": "在线 Agent",
+      "status": "passed",
+      "manual_review": "passed"
+    },
+    {
+      "case_id": "A06",
+      "mode": "在线 Agent",
+      "status": "passed",
+      "manual_review": "passed"
+    },
+    {
+      "case_id": "A07",
+      "mode": "在线 Agent",
+      "status": "passed",
+      "manual_review": "passed"
+    },
+    {
+      "case_id": "A08",
+      "mode": "在线 Agent",
+      "status": "passed",
+      "manual_review": "passed"
+    }
+  ],
+  "necessary_checks": {
+    "backend_tests": {
+      "passed": 29,
+      "failed": 0,
+      "not_run": 0
+    },
+    "frontend_typecheck": "passed",
+    "frontend_production_build": "passed",
+    "O5_browser_path": "沿用十二组真实检查，桌面1440/窄屏390，显式用户按钮确认与刷新恢复",
+    "O6_MCP": "沿用九组真实stdio协议检查，共享实现未改变",
+    "admin_database_failure": "通过：受控真实ASGI响应与真实浏览器，统计/记录未知，清旧状态，显式刷新恢复真实数据库快照",
+    "clean_machine": "未运行：仅已有环境的命令与配置审查",
+    "report_schema_and_history_merge": "通过：严格EvalReport最新副本校验，原始快照和选择性重跑归档保留"
+  },
+  "limitations": [
+    "合成12商品/3订单/3政策，MockCommerceAdapter；不证明真实交易。",
+    "有限样本/单次全量/选择性重跑，不表示普遍模型准确率或生产性能。",
+    "主观佩戴/隔音推荐不是实测性能；引用分数不是可信概率。",
+    "单进程演示、六轮原生历史、二十条去重缓存、四次模型/八次工具/60秒预算，无自动重试/流式。",
+    "评测和能力HTTP接口仍501；本轮提供CLI评测及公开能力表。",
+    "未验收全新机器/公网生产部署/多Agent/企业规模。",
+    "语义核验由Codex直接完成，未进行独立真人盲审。"
+  ],
+  "execution_dates": {
+    "full_twenty_cases": "2026-10-03 Asia/Shanghai",
+    "selected_reruns": "2026-10-03–04 Asia/Shanghai",
+    "final_review": "2026-10-04 Asia/Shanghai"
+  }
+}

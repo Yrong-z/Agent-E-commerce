@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="360" viewBox="0 0 600 360" role="img" aria-label="白色耳机示意图">
+<!-- 项目绘制的中性几何示意图，非真实商品照片，无第三方图片素材。 -->
+<defs><linearGradient id="bg" x2="1" y2="1"><stop stop-color="#edf2f0"/><stop offset="1" stop-color="#dce6e3"/></linearGradient><linearGradient id="case" x2="0" y2="1"><stop stop-color="#fff"/><stop offset="1" stop-color="#d6dddc"/></linearGradient></defs>
+<rect width="600" height="360" rx="16" fill="url(#bg)"/><ellipse cx="304" cy="296" rx="164" ry="20" fill="#bac8c4" opacity=".5"/>
+<rect x="199" y="128" width="216" height="155" rx="52" fill="url(#case)" stroke="#bbc7c3" stroke-width="3"/><path d="M201 198h211" stroke="#b8c6c1" stroke-width="3"/><circle cx="307" cy="235" r="4" fill="#52af9f"/>
+<g fill="#fff" stroke="#c1cbc8" stroke-width="3"><ellipse cx="152" cy="218" rx="31" ry="42" transform="rotate(-25 152 218)"/><rect x="148" y="239" width="22" height="64" rx="11" transform="rotate(-25 159 271)"/><ellipse cx="447" cy="225" rx="31" ry="42" transform="rotate(25 447 225)"/><rect x="429" y="246" width="22" height="64" rx="11" transform="rotate(25 440 278)"/></g><ellipse cx="145" cy="206" rx="10" ry="15" fill="#536360"/><ellipse cx="454" cy="213" rx="10" ry="15" fill="#536360"/>
+</svg>

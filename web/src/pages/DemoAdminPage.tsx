@@ -1,0 +1,18 @@
+/** 实际服务状态与当前会话脱敏执行记录；无模型调用或轮询。 */
+import { useEffect, useState } from 'react';
+import { fetchDemoStatus } from '../api';
+import type { DemoStatus, ServiceStatus } from '../types';
+const labels = { available:'可用', unavailable:'不可用', not_checked:'未检查' };
+const time = (value:string|null) => value ? new Date(value).toLocaleString('zh-CN',{timeZone:'Asia/Shanghai'})+'（北京时间）' : '暂无检查时间';
+export function DemoAdminPage({ sessionId }: { sessionId:string|null }) {
+  const [snapshot,setSnapshot]=useState<DemoStatus|null>(null), [error,setError]=useState(''), [loading,setLoading]=useState(true);
+  useEffect(()=>{
+    let alive=true;
+    setSnapshot(null);setError('');setLoading(true);
+    fetchDemoStatus(sessionId).then(value=>{if(alive)setSnapshot(value);}).catch(e=>{if(alive)setError(e instanceof Error?e.message:'状态读取失败');}).finally(()=>{if(alive)setLoading(false);});
+    return ()=>{alive=false;};
+  },[sessionId]);
+  async function load(){setSnapshot(null);setError('');setLoading(true);try{setSnapshot(await fetchDemoStatus(sessionId));}catch(e){setError(e instanceof Error?e.message:'状态读取失败');}finally{setLoading(false);}}
+  function card(name:string,state:ServiceStatus){return <article className="context-card status-card" key={name}><h3>{name}</h3><span className={`service-badge ${state.status}`}>{labels[state.status]}</span><p>{state.detail}</p><small>{time(state.checked_at)}</small></article>;}
+  return <section className="admin-panel"><div className="section-heading"><div><h2>演示运行状态</h2><p>只读快照 · 打开页面不调用聊天模型 · 手动刷新检查</p></div><button disabled={loading} onClick={()=>void load()}>{loading?'检查中…':'刷新状态 / 重试'}</button></div>{error&&<div className="error-panel" role="alert"><p>{error}</p><p>本次未取得状态，旧结果已清除。</p></div>}{loading&&<p role="status">正在读取服务与执行记录…</p>}{snapshot&&<><div className="status-grid">{card('后端',snapshot.backend)}{card('数据库',snapshot.database)}{card('Embedding',snapshot.embedding)}{card('聊天模型 · 最近调用',snapshot.chat)}</div><section className="context-card"><h2>知识库与模型</h2><p>聊天：{snapshot.chat_model} · 向量：{snapshot.embedding_model} · 配置维度：{snapshot.embedding_dimension??'未探测'}</p>{snapshot.database.status==='unavailable'?<p>数据库不可用，本次未取得知识库统计。</p>:<><p className="knowledge-count">{snapshot.document_count} 份文档 · {snapshot.chunk_count} 个片段</p><p>实际语料：{snapshot.corpus_models.length?snapshot.corpus_models.map(model=>`${model.model} / ${model.dimension} 维`).join('；'):'暂无入库模型'}</p>{snapshot.sources.length?snapshot.sources.map(source=><p key={source.document_id}>{source.title} · {source.document_id} · {source.chunk_count} 个片段</p>):<p>暂无入库来源，文件存在不等于入库成功。</p>}</>}</section><section className="execution-section"><h2>当前会话最近执行记录</h2><p>仅展示工具、结果、耗时与实际检索来源；不展示原始参数、日志或内部思考。</p>{snapshot.database.status==='unavailable'?<p>数据库不可用，本次未取得执行记录，请显式重试。</p>:!sessionId?<div className="empty-panel"><h3>尚未选择会话</h3><p>在选购助手完成操作或恢复会话后查看。</p></div>:!snapshot.executions.length?<div className="empty-panel"><h3>当前会话暂无执行记录</h3><p>手动表单操作不会产生模型工具调用记录。</p></div>:snapshot.executions.map(record=><article className="context-card execution-card" key={record.request_id}><details><summary>{record.status==='failed'?'失败':record.status==='needs_input'?'待补信息':'完成'} · {time(record.checked_at)}</summary><small>请求编号：{record.request_id}</small><ul className="execution-steps">{record.steps.map((step,index)=><li key={index}><strong>{step.tool_name}</strong><span>{step.error?`未完成 · ${step.error}`:'成功'} · {Math.round(step.duration_ms)} ms</span>{step.sources.map(hit=><details key={hit.chunk_id}><summary>{hit.title} · {hit.document_id}</summary><small>{hit.chunk_id}</small><p className="policy-excerpt">{hit.excerpt}</p></details>)}</li>)}</ul></details></article>)}</section><p className="muted">合成商品与已有订单；售后只保存模拟申请，不执行退款。</p></>}</section>;
+}

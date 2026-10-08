@@ -1,0 +1,38 @@
+.env
+.env.*
+!.env.example
+.venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+node_modules/
+web/dist/
+.runtime/
+*.log
+.DS_Store
+# 内部工作资料与阶段产物；公开精选证据放 docs/evidence。
+/docs/internal/
+/docs/assets/final-ui.png
+/artifacts/
+.idea/
+.vscode/
+
+# 外部模型权重不随仓库发布
+/data/embedding-model/
+*.safetensors
+*.onnx
+pytorch_model*.bin
+
+# 私人密钥与数据库备份仅保留本机，不影响源码中的数据库迁移文件。
+/.envrc
+/.secrets/
+/secrets/
+/backups/
+/database-dumps/
+*.dump
+*.backup
+*.pem
+*.key
+*.p12
+*.pfx

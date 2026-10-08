@@ -1,0 +1,3 @@
+# 仅允许 Vite 必需的 esbuild 原生二进制安装脚本。
+allowBuilds:
+  esbuild: true
